@@ -32,8 +32,10 @@ function updateTwitterStream()
     twit.stream('statuses/filter', {'follow':allthetwitternames.toString()}, function(stream) {
         stream.on('data', function (data) {
 
-            var chckin = new  Checkin(new Date().getTime(), null, 'twitter', 'twitted: '+ data.text);
-            users.get_user(tSignals.get_user(data.user.screen_name)).checkin(chckin);
+            //var chckin = new  Checkin(new Date().getTime(), null, 'twitter', 'twitted: '+ data.text);
+            
+            user = users.get_user(tSignals.get_user(data.user.screen_name))
+            user.checkin(models.sources.TWITTER, 'tweeted');
             console.log(data.user.screen_name+": "+data.text);
 
         });
