@@ -12,3 +12,17 @@ exports.index = function(req, res){
 };
 
 
+/*
+ * GET alert call
+ */
+
+exports.alert = function(req, res, next){
+    var key = req.params.key;
+    res.render('alert', {
+        locals: {'key': key}
+    });
+};
+
+
+
+
