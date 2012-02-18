@@ -7,19 +7,12 @@
 var email = require('mailer');
 
 function UserList(){
-<<<<<<< HEAD
     this.users = {};
 }
 
 UserList.prototype.add_user = function(new_user) { this.users[new_user.get_username()] = new_user; return users.length };
 UserList.prototype.get_user = function(username) { return this.users[username];};
-=======
-	this.users = {};
-}
 
-UserList.prototype.add_user	= function(new_user) { this.users[new_user.get_username()] = new_user; return users.length };
-UserList.prototype.get_user	= function(username) { return this.users[username];};
->>>>>>> email function
 
 
 // User
@@ -28,7 +21,6 @@ UserList.prototype.get_user	= function(username) { return this.users[username];}
 //
 
 function User(username, password, key, email, email_to) {
-<<<<<<< HEAD
     this.username     = username;
     this.password     = password;
     this.key          = key;
@@ -36,16 +28,6 @@ function User(username, password, key, email, email_to) {
     this.email_to     = email_to;
     this.panic_status = false;
     this.checkins     = [ new Checkin(new Date().getTime(), null, username, 'created account') ];
-=======
-	this.username		=	username;
-	this.password		= 	password;
-	this.key			=	key;
-    this.email 			= 	email;
-    this.email_to		=	email_to;
-    this.panic_status	=	false;
-    this.checkins     	= 	[ new Checkin(new Date().getTime(), null, 'user', 'created account') ];
-    return this;
->>>>>>> email function
 }
 User.prototype.get_username     = function() { return this.username; };
 User.prototype.get_password     = function() { return this.password; };
@@ -57,7 +39,6 @@ User.prototype.get_checkins     = function() { return this.checkins; };
 User.prototype.get_last_checkin = function() { return this.checkins[checkins.length - 1]; };
 
 
-<<<<<<< HEAD
 User.prototype.checkin = function(checkin) { this.checkins.push(checkin); }
 User.prototype.alert = function() { 
     var checkin = new Checkin(new Date().getTime(), null, this.username, 'panic alert')
@@ -65,8 +46,6 @@ User.prototype.alert = function() {
     this.panic_status = 'offline'
     // send alerts & notifications
 }
-=======
-User.prototype.checkin 			= function(checkin) { this.checkins.push(checkin); }
 User.prototype.sendEmail        = function(){
     
     email.send({
@@ -90,7 +69,6 @@ User.prototype.sendEmail        = function(){
 
 }
 
->>>>>>> email function
 
 // Checkin
 //
