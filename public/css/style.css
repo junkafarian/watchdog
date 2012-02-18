@@ -219,6 +219,61 @@ td { vertical-align: top; }
    ========================================================================== */
 
 
+#main{
+	max-width:	1000px;
+	margin:		50px auto;
+	font-size:	20px;
+}
+
+#setStatus{
+	text-align:	center;
+	margin:		20px 0;
+}
+
+#setStatus .button{
+	display:	inline-block;
+	margin:		10px;
+	text-align:	center;
+	text-decoration: none;
+	color:		#000;
+	border:		1px solid #333;
+	border-radius:	5px;
+	padding:	10px 20px;
+	width:		140px;
+}
+
+#setStatus .button.safe{
+	background:	#DFD;
+}
+
+#setStatus .button.danger{
+	background:	#FDD;
+}
+
+#setStatus .pretitle{
+	line-height:24px;
+	display:	block;
+	font-size:	16px;
+}
+
+#setStatus .title{
+	line-height:40px;
+	display:	block;
+	font-size:	30px;
+}
+
+#setStatus .subtitle{
+	display:	block;
+	font-size:	16px;
+}
+
+#currentStatus{
+	text-align:	center;
+}
+
+#currentStatusText{
+	font-weight:	bold;
+}
 
 
 
