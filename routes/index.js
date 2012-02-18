@@ -1,6 +1,12 @@
 var models 	= require('./models');
 var users 	= new models.UserList();
 
+function bootstrap() {
+    // bootstrap data
+    var dummy = new models.User('dummy', 'password', 'dummy123', 'I might be in trouble, please eat all the vegetables.', 'dummy@example.com');
+    users.add_user(dummy);
+}
+
 exports.index = function(req, res){
   res.render('index', {
     locals: {
