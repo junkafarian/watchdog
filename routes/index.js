@@ -18,6 +18,11 @@ exports.index = function(req, res){
 
 exports.alert = function(req, res, next){
     var key = req.params.key;
+
+    // TODO: - lookup user based on `key`
+    //       - send alerts
+    //       - update user status
+
     res.render('alert', {
         locals: {'key': key}
     });
