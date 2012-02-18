@@ -27,6 +27,11 @@ User.prototype.get_last_checkin = function() { return this.checkins[checkins.len
 
 
 User.prototype.checkin = function(checkin) { this.checkins.push(checkin); }
+User.prototype.alert = function() { 
+    var checkin = new Checkin(new Date().getTime(), null, this.username, 'panic alert')
+    this.checkins.push(checkin);
+    this.panic_status = 'offline'
+}
 
 
 
