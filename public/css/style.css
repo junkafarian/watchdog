@@ -237,17 +237,41 @@ td { vertical-align: top; }
     zoom:1;
 }
 
+html{
+
+	height:	100%;
+	}
+
 body{
-	background:	#F8F8F8;
+	background:	#000;
+	height:	100%;
+}
+
+p{
+	text-align:	left;
+}
+
+a, a:visited{
+	text-decoration:none;
+	color:		#FF3300;
+}
+
+#menu{
+	font-size:	14px;
+	text-align:	right;
+}
+
+#createAccount{
+	font-size:	14px;
 }
 
 #main{
-	background:	#FFF;
+	background:	#FF0 url(/images/amnesty-header.png) no-repeat top left;
 	max-width:	600px;
-	margin:		50px auto;
+	margin:		auto;
 	font-size:	20px;
-	border:		1px solid #EEE;
-	padding:	20px;
+	padding:	120px 30px 30px 30px;
+	height:	100%;
 }
 
 #setStatus{
@@ -275,24 +299,44 @@ h2{
 	margin:		auto;
 }
 
+#createAlertWrap{
+	text-align:	center;
+}
+
+
 form .row{
 	margin:		10px 0;
+	text-align:		left;
 }
 
 form label{
 	float:		left;
 	width:		100px;
 	margin-right: -80px;
-	text-align:	left;
 	padding-top:5px;
 }
 
+form label.fullWidth{
+	display:	block;
+	width:		auto;
+	float:		none;
+	margin-right:0;
+	margin-bottom: 4px;
+}
+
 form input{
+	border:		1px solid #999;
+	padding:	6px;
+}
+
+form input, form .input{
 	float:		left;
 	width:		220px;
 	margin-left: 100px;
-	border:		1px solid #999;
-	padding:	6px;
+}
+
+form input.long{
+	width:		330px;
 }
 
 #setStatus .button{
@@ -307,7 +351,7 @@ form input{
 }
 
 #setStatus .button.safe{
-	background:	#6E6;
+	background:	#3E3;
 	border:		0px solid #4C4;
 	border-right-width:1px;
 	border-bottom-width:2px;
@@ -361,7 +405,11 @@ form input{
 }
 
 #friends .pic{
-display:	block;
+	display:	block;
+}
+
+#friends .name{
+	display:	none;
 }
 
 #addContact{

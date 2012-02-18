@@ -1,19 +1,41 @@
+
+<link rel="stylesheet" href="/css/register.css">
+
+<h1>Create an emergency alert</h1>
+
+
 <form action="/newuser" method="post">
 
-    <span>username</span>
-    <br><input type="text" name="user[username]">
-    <br><span>password</span>
-    <br><input type="password" name="user[password]">
-    <br><span>email to contacts</span>
-    <br><textarea name="user[email]"></textarea>
 
-    <br><span>contacts emails</span>
-    <br><input type="text" name="user[contact01]"/>
-    <br><input type="text" name="user[contact02]"/>
-    <br><input type="text" name="user[contact03]"/>
-    <br><input type="text" name="user[contact04]"/>
-    <br><input type="text" name="user[contact05]"/>
-
-    <br><input type="submit" value="Submit">
+	<div class="row clearfix">
+		<label for="username">Username</label>
+		<input id = 2type="text" name="user[username]">
+	</div>
+	
+	<div class="row clearfix">
+		<label for="password">Password</label>
+		<input id="password" type="password" name="user[password]">
+	</div>
+	
+	<div class="row clearfix">
+		<label class="fullWidth" for="message">Your emergency message:</label>
+	 	<textarea class="fullWidth" id="message" name="user[email]"></textarea>
+	</div>
+	
+	<p>If we think you are in danger, we will send your message to the following email addresses:</p>
+	
+	<div class="row clearfix">
+		<input class="long" placeholder="example@domain.com" type="email" name="user[contact01]"/>
+	</div>
+	
+	<div class="row clearfix">
+		<span class="input">
+			<a href="#">Add another email</a>
+		</span>
+	</div>
+	
+	<div class="row clearfix">
+		<button id="submit">Create my alert</button>
+	</div>
 
 </form>

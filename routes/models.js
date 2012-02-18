@@ -160,13 +160,32 @@ function Checkin(date_time, location, source, action) {
     this.source    = source;
     this.action    = action;
 }
-User.prototype.get_date_time = function() { return this.date_time; };
-User.prototype.get_location  = function() { return this.location; };
-User.prototype.get_source    = function() { return this.source; };
-User.prototype.get_action    = function() { return this.action; };
+Checkin.prototype.get_date_time = function() { return this.date_time; };
+Checkin.prototype.get_location  = function() { return this.location; };
+Checkin.prototype.get_source    = function() { return this.source; };
+Checkin.prototype.get_action    = function() { return this.action; };
 
 
-exports.User 	= User;
-exports.Checkin = Checkin;
-exports.UserList = UserList;
+// Signals
+//
+//
+//
+
+function TwitterSignals()
+{
+    this.signals   = {};
+    //this.local_username     = user;
+}
+
+TwitterSignals.prototype.add_signal    = function(username,twittername) { this.signals[twittername] = username;  };
+TwitterSignals.prototype.get_user      = function(twitter) { return this.signals[twitter];  };
+
+
+
+
+
+exports.User 	       = User;
+exports.Checkin        = Checkin;
+exports.UserList       = UserList;
 exports.sources = sources;
+exports.TwitterSignals = TwitterSignals;
