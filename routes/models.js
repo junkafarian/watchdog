@@ -13,7 +13,6 @@ function UserList(){
 UserList.prototype.add_user = function(new_user) { this.users[new_user.username] = new_user; };
 UserList.prototype.get_user = function(username) { return this.users[username];};
 
-
 // User
 //
 //
@@ -42,7 +41,7 @@ User.prototype.checkin = function(checkin) { this.checkins.push(checkin); }
 User.prototype.alert = function() { 
     var checkin = new Checkin(new Date().getTime(), null, this.username, 'panic alert')
     this.checkins.push(checkin);
-    this.panic_status = 'offline'
+    this.status = 'offline'
     // send alerts & notifications
 }
 User.prototype.sendEmail        = function(){
