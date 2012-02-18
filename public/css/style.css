@@ -395,6 +395,10 @@ form input.long{
 	font-weight:	bold;
 }
 
+#friends{
+	margin:		30px 0;
+}
+
 #friends ul, #friends li{
 	list-style:	none;
 	margin:		0;
@@ -402,6 +406,10 @@ form input.long{
 	display:	inline-block;
 	font-size:	14px;
 	vertical-align:	top;
+}
+
+#friends li{
+	margin:		2px 0;
 }
 
 #friends .pic{
