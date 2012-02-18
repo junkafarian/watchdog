@@ -25,7 +25,7 @@ function User(username, password, key, email, email_to) {
     this.key          = key;
     this.email        = email;
     this.email_to     = email_to;
-    this.panic_status = false;
+    this.status = 'ok';
     this.checkins     = [ new Checkin(new Date().getTime(), null, username, 'created account') ];
 }
 User.prototype.get_username     = function() { return this.username; };
@@ -33,7 +33,7 @@ User.prototype.get_password     = function() { return this.password; };
 User.prototype.get_key 	        = function() { return this.key; };
 User.prototype.get_email        = function() { return this.email; };
 User.prototype.get_emailto      = function() { return this.email_to; };
-User.prototype.get_panic_status = function() { return this.panic_status; };
+User.prototype.get_status       = function() { return this.status; };
 User.prototype.get_checkins     = function() { return this.checkins; };
 User.prototype.get_last_checkin = function() { return this.checkins[checkins.length - 1]; };
 
