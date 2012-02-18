@@ -36,6 +36,7 @@ app.get('/signedin', routes.signedin);
 app.get('/alert/:username', routes.alert);
 app.get('/status/', routes.status_listings);
 app.get('/status/:username', routes.status);
+app.get('/checkin/:username', routes.checkin);
 app.get('/register', routes.register);
 app.post('/newuser', routes.adduser);
 
