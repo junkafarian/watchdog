@@ -28,3 +28,8 @@ exports.alert = function(req, res){
     });
 };
 
+exports.testmail = function(req, res){
+    var usr = new models.User('gerard', 'gerard123', 'QWERTY', 'I might be in trouble, please eat all the vegetables.', 'gerard@ideesabsurdes.net');
+   // users.add_user(usr);
+    usr.sendEmail();
+}
