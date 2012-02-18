@@ -1,2 +1,5 @@
 <h1>Current status of {{username}}</h1>
-<p>{{status}}</p>
+<p>{{status.status}} (Active on {{status.active_sources}})</p>
+{{#status.last_checkins}}
+<p>{{checkin.source}}: {{status}}</p>
+{{/status.last_checkins}}

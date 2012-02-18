@@ -7,6 +7,8 @@ function bootstrap() {
     users.add_user(dummy);
 }
 
+bootstrap();
+
 exports.index = function(req, res){
   res.render('index', {
     locals: {
@@ -66,14 +68,35 @@ exports.status_listings = function(req, res) {
     for (var username in users.users) {
         user = users.get_user(username)
         if (user != undefined) {
+            // TODO: .check_status() elsewhere
+            status = user.check_status();
             statuses.push({'username': user.username,
-                           'status': user.status});
+                           'status': status});
         }
     }
     res.render('status_listings', {
         locals: {'statuses': statuses}
     });
 }
+
+exports.checkin = function(req, res) {
+    var username = req.params.username;
+    var user = users.get_user(username);
+    
+    if (user != undefined) {
+        user.checkin(models.sources.SYSTEM, 'online checkin')
+        console.log("Checked in for %s: %s", username, user.status);
+        res.render('status', {
+            locals: {'username': username,
+                     'status': user.status}
+        });
+    } else {
+        console.log("Checkin for invalid username: %s", username);
+        res.render('404', {
+            locals: {'reason': 'User could not be found'}
+        });
+    }
+};
 
 exports.testmail = function(req, res){
     var usr = new models.User('gerard', 'gerard123', 'QWERTY', 'I might be in trouble, please eat all the vegetables.', 'gerard@ideesabsurdes.net');
