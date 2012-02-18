@@ -3,16 +3,18 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
+var express = require('express'),
+	routes = require('./routes'),
+	stache = require('stache');
 
 var app = module.exports = express.createServer();
 
 // Configuration
 
 app.configure(function(){
+  app.set('view engine', 'mustache');
+  app.register('.mustache', stache);
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
