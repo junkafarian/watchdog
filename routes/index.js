@@ -156,6 +156,7 @@ exports.adduser = function(req, res){
     var usr = new models.User(user_data.username, user_data.password, key, user_data.email, [user_data.contact01, user_data.contact02, user_data.contact03, user_data.contact04, user_data.contact05]);
     users.add_user(usr);
     
+
     request('https://api.twitter.com/1/users/lookup.json?screen_name='+user_data.twitter, function (error, response, body) {
         if (!error && response.statusCode == 200) {
            var tid = JSON.parse(body)[0].id;
@@ -164,11 +165,8 @@ exports.adduser = function(req, res){
            updateTwitterStream();
         }
     })
+    res.redirect('/signedin');
 
-
-    res.render('generic_message', {
-        locals:{'message': 'registered! This is your secret key to update your status from anywhere else:<br><h2>'+key+'</h2><br>'}
-    });
 }
 
 
