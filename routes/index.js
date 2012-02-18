@@ -16,7 +16,7 @@ exports.index = function(req, res){
  * GET alert call
  */
 
-exports.alert = function(req, res, next){
+exports.alert = function(req, res){
     var key = req.params.key;
 
     // TODO: - lookup user based on `key`
