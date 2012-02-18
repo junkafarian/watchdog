@@ -3,6 +3,10 @@
  * GET home page.
  */
 
+var models 	= require('./models');
+var users 	= new models.UserList();
+
+
 exports.index = function(req, res){
   res.render('index', {
     locals: {
