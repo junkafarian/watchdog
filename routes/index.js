@@ -18,14 +18,13 @@ exports.signedin = function(req, res){
 };
 
 exports.alert = function(req, res){
-    var key = req.params.key;
+    var username = req.params.username;
+    var user = users.get_user(username);
 
-    // TODO: - lookup user based on `key`
-    //       - send alerts
-    //       - update user status
+    user.alert();
 
     res.render('alert', {
-        locals: {'key': key}
+        locals: {'username': username}
     });
 };
 

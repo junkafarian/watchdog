@@ -31,6 +31,7 @@ User.prototype.alert = function() {
     var checkin = new Checkin(new Date().getTime(), null, this.username, 'panic alert')
     this.checkins.push(checkin);
     this.panic_status = 'offline'
+    // send alerts & notifications
 }
 
 
