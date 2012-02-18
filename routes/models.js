@@ -7,7 +7,6 @@ UserList.prototype.add_user	= function(new_user) { this.users[new_user.get_usern
 UserList.prototype.get_user	= function(username) { return this.users[username];};
 
 
-
 function User(username, password, key, email, email_to) {
 	this.username		=	username;
 	this.password		= 	password;
@@ -28,6 +27,10 @@ User.prototype.get_last_checkin = function() { return this.checkins[checkins.len
 
 
 User.prototype.checkin 			= function(checkin) { this.checkins.push(checkin); }
+
+	
+
+
 
 
 function Checkin(date_time, location, source, action) {
