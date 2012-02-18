@@ -1,9 +1,9 @@
 
 function UserList(){
-    this.users = [];
+    this.users = {};
 }
 
-UserList.prototype.add_user = function(new_user) { this.users[new_user.get_username()] = new_user; return unsers.length };
+UserList.prototype.add_user = function(new_user) { this.users[new_user.get_username()] = new_user; return users.length };
 UserList.prototype.get_user = function(username) { return this.users[username];};
 
 
