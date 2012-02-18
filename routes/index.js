@@ -80,3 +80,23 @@ exports.testmail = function(req, res){
     // users.add_user(usr);
     usr.sendEmail();
 }
+
+exports.adduser = function(req, res){
+
+    var user_data = req.body.user;
+
+    // I use Date().getTime() to simulate somehow a keygenerator to acces the "API"
+
+    var key = new Date().getTime();
+    var usr = new models.User(user_data.username, user_data.password, key, user_data.email, [user_data.contact01, user_data.contact02, user_data.contact03, user_data.contact04, user_data.contact05]);
+    users.add_user(usr);
+    
+    res.render('generic_message', {
+        locals:{'message': 'registered! This is your secret key to update your status from anywhere else:<br><h2>'+key+'</h2><br>'}
+    });
+}
+
+
+exports.register = function(req, res){
+    res.render('registration');
+}
