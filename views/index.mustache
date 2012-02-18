@@ -1,3 +1,42 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<a href="/signedin">Sign in</a>
+<form id="signInForm">
+
+	<h1>Is everything OK?</h1>
+	
+	<div class="textInputs">
+	
+		<div class="row clearfix">
+			<label for="username">Username</label>
+			<input id="username" name="username" type="text"/>
+		</div>
+		
+		<div class="row clearfix">
+			<label for="password">Password</label>
+			<input id="password" name="password" type="password"/>
+		</div>
+		<!--
+		<div class="row">
+		
+			<button id="submit">Set my status</button>
+		
+		</div>
+	-->
+	</div>
+	
+
+	<div id="setStatus">
+		<a class="button safe" href="/signedin">
+			<span class="pretitle">I am</span>
+			<span class="title">safe</span>
+			<span class="subtitle">Don't worry</span>
+		</a><!--
+	 --><a class="button danger" href="/signedin">
+			<span class="pretitle">I am</span>
+			<span class="title">in danger</span>
+			<span class="subtitle">Alert my friends</span>
+		</a>
+	</div>
+	
+
+
+</form>
+

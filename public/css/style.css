@@ -218,11 +218,36 @@ td { vertical-align: top; }
    Author:
    ========================================================================== */
 
+/* apply a natural box layout model to all elements */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* For modern browsers */
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+
+.clearfix:after {
+    clear:both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom:1;
+}
+
+body{
+	background:	#F8F8F8;
+}
 
 #main{
-	max-width:	1000px;
+	background:	#FFF;
+	max-width:	600px;
 	margin:		50px auto;
 	font-size:	20px;
+	border:		1px solid #EEE;
+	padding:	20px;
 }
 
 #setStatus{
@@ -230,34 +255,81 @@ td { vertical-align: top; }
 	margin:		20px 0;
 }
 
+h1{
+	text-align:	center;
+	font-weight:normal;
+}
+
+h2{
+	font-size:	22px;
+	}
+
+#signInForm{
+	max-width:	400px;
+	margin:		auto;
+	text-align:	center;
+}
+
+#signInForm .textInputs{
+	max-width:	350px;
+	margin:		auto;
+}
+
+form .row{
+	margin:		10px 0;
+}
+
+form label{
+	float:		left;
+	width:		100px;
+	margin-right: -80px;
+	text-align:	left;
+	padding-top:5px;
+}
+
+form input{
+	float:		left;
+	width:		220px;
+	margin-left: 100px;
+	border:		1px solid #999;
+	padding:	6px;
+}
+
 #setStatus .button{
 	display:	inline-block;
-	margin:		10px;
 	text-align:	center;
 	text-decoration: none;
 	color:		#000;
-	border:		1px solid #333;
-	border-radius:	5px;
 	padding:	10px 20px;
-	width:		140px;
+	width:		180px;
+	border-radius:	4px;
+	margin:		8px;
 }
 
 #setStatus .button.safe{
-	background:	#DFD;
+	background:	#6E6;
+	border:		0px solid #4C4;
+	border-right-width:1px;
+	border-bottom-width:2px;
+	color:		#FFF;
 }
 
 #setStatus .button.danger{
-	background:	#FDD;
+	background:	#E33;
+	border:		0px solid #C11;
+	border-right-width:1px;
+	border-bottom-width:2px;
+	color:		#FFF;
 }
 
 #setStatus .pretitle{
-	line-height:24px;
+	line-height:18px;
 	display:	block;
 	font-size:	16px;
 }
 
 #setStatus .title{
-	line-height:40px;
+	line-height:36px;
 	display:	block;
 	font-size:	30px;
 }
@@ -265,6 +337,10 @@ td { vertical-align: top; }
 #setStatus .subtitle{
 	display:	block;
 	font-size:	16px;
+}
+
+#submit{
+	margin:		10px 0;
 }
 
 #currentStatus{
@@ -275,9 +351,57 @@ td { vertical-align: top; }
 	font-weight:	bold;
 }
 
+#friends ul, #friends li{
+	list-style:	none;
+	margin:		0;
+	padding:	0;
+	display:	inline-block;
+	font-size:	14px;
+	vertical-align:	top;
+}
+
+#friends .pic{
+display:	block;
+}
+
+#addContact{
+	width:	130px;
+	height:	130px;
+	display:inline-block;
+	background:	#66F;
+	color:	#FFF;
+	text-decoration:	none;
+	font-size:	20px;
+	padding:	10px;
+}
 
 
+#activity ul, #activity li{
+	list-style:	none;
+	margin:		0;
+	padding:	0;
+	font-size:	14px;
+}
 
+#activity li{
+	padding:	10px 10px 10px 40px;
+}
+
+#activity .twitter{
+	background: url(/images/twitter-small.png) 2px 2px no-repeat;
+}
+
+#activity .facebook{
+	background: url(/images/facebook-small.png) 2px 2px no-repeat;
+}
+
+#activity .skype{
+	background: url(/images/skype-small.png) 2px 2px no-repeat;
+}
+
+#activity .flickr{
+	background: url(/images/flickr-small.png) 2px 2px no-repeat;
+}
 
 
 
