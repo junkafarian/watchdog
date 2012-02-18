@@ -33,7 +33,11 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.get('/signedin', routes.signedin);
-app.get('/alert/:key', routes.alert);
+app.get('/alert/:username', routes.alert);
+app.get('/status/', routes.status_listings);
+app.get('/status/:username', routes.status);
+app.get('/register', routes.register);
+app.post('/newuser', routes.adduser);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
