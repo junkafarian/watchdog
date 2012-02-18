@@ -20,11 +20,20 @@ exports.signedin = function(req, res){
 exports.alert = function(req, res){
     var username = req.params.username;
     var user = users.get_user(username);
-
-    user.alert();
-
-    res.render('alert', {
-        locals: {'username': username}
-    });
+    
+    if (user != undefined) {
+        user.alert();
+        
+        console.log("Alert received and processed for %s", username);
+        res.render('alert', {
+            locals: {'username': username}
+        });
+    } else {
+        console.log("Alert received for invalid username: %s", username);
+        res.render('failed_alert', {
+            locals: {'username': username,
+                     'reason': 'User could not be found'}
+        });
+    }
 };
 
