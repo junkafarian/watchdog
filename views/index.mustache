@@ -1,46 +1,41 @@
-<form id="signInForm">
 
-	<h1>Is everything OK?</h1>
-	
-	<div class="textInputs">
-	
-		<div class="row clearfix">
-			<label for="username">Username</label>
-			<input id="username" name="username" type="text"/>
-		</div>
-		
-		<div class="row clearfix">
-			<label for="password">Password</label>
-			<input id="password" name="password" type="password"/>
-		</div>
-		<!--
-		<div class="row">
-		
-			<button id="submit">Set my status</button>
-		
-		</div>
-	-->
+<link rel="stylesheet" href="/css/register.css">
+
+<h1>Create an emergency alert</h1>
+
+
+<form action="/newuser" method="post">
+
+
+	<div class="row clearfix">
+		<label for="username">Username</label>
+		<input id="username" type="text" name="user[username]">
 	</div>
 	
-
-	<div id="setStatus">
-		<a class="button safe" href="/signedin">
-			<span class="pretitle">I am</span>
-			<span class="title">safe</span>
-			<span class="subtitle">Don't worry</span>
-		</a><!--
-	 --><a class="button danger" href="/signedin">
-			<span class="pretitle">I am</span>
-			<span class="title">in danger</span>
-			<span class="subtitle">Alert my friends</span>
-		</a>
+	<div class="row clearfix">
+		<label for="password">Twitter</label>
+		<input id="twitter" type="text" name="user[twitter]">
 	</div>
 	
-
+	<div class="row clearfix">
+		<label class="fullWidth" for="message">Your emergency message:</label>
+	 	<textarea placeholder="This is an emergency alert - XXX has gone missing. Please follow these instructions:" class="fullWidth" id="message" name="user[email]"></textarea>
+	</div>
+	
+	<p>If we think you are in danger, we will send your message to the following email addresses:</p>
+	
+	<div class="row clearfix">
+		<input class="long" placeholder="example@domain.com" type="email" name="user[contact01]"/>
+	</div>
+	
+	<div class="row clearfix">
+		<span class="input">
+			<a href="#">Add another email</a>
+		</span>
+	</div>
+	
+	<div class="row clearfix">
+		<button id="submit">Create my alert</button>
+	</div>
 
 </form>
-
-<div id="createAlertWrap">
-	<a href="/register" id="createAccount">Create an alert</a>
-</div>
-
