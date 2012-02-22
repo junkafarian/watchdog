@@ -95,11 +95,11 @@ exports.status = function(req, res) {
     var user = users.get_user(username);
     
     if (user != undefined) {
-        status = user.check_status();
+        userstatus = user.check_status();
         res.render('status', {
             locals: {'username': username,
-                     'status': status,
-                     'last_checkins': status.checkins}
+                     'user_status': user_status,
+                     'last_checkins': user_status.checkins}
         });
     } else {
         console.log("Requested status for invalid username: %s", username);
