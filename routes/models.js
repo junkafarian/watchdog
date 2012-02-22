@@ -120,6 +120,8 @@ User.prototype.check_status = function() {
                 source_status = 'unknown';
                 if (status != 'active' && status != 'in danger') 
                     status = source_status;
+            } else {
+                source_status = 'offline'
             }
             last_checkins.push({'checkin': last_checkin, 'status': source_status});
             
