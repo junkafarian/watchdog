@@ -167,26 +167,7 @@ Checkin.prototype.get_source    = function() { return this.source; };
 Checkin.prototype.get_action    = function() { return this.action; };
 
 
-// Signals
-//
-//
-//
-
-function TwitterSignals()
-{
-    this.signals   = {};
-    //this.local_username     = user;
-}
-
-TwitterSignals.prototype.add_signal    = function(username,twittername) { this.signals[twittername] = username;  };
-TwitterSignals.prototype.get_user      = function(twitter) { return this.signals[twitter];  };
-
-
-
-
-
 exports.User 	       = User;
 exports.Checkin        = Checkin;
 exports.UserList       = UserList;
 exports.sources = sources;
-exports.TwitterSignals = TwitterSignals;

@@ -3,7 +3,7 @@ var users 	= new models.UserList();
 var request = require('request');
 
 var twitter = require('ntwitter');
-var tSignals = new models.TwitterSignals();
+var tSignals = {};
 
 
 
@@ -17,26 +17,29 @@ var twit = new twitter({
 
 
 
-function updateTwitterStream()
-{
+function updateTwitterStream() {
 
-    var allthetwitternames = [];
+    var allthetwitterids = [];
 
-    for( var twittername in tSignals.signals )
-    {
-        allthetwitternames.push(twittername);
+    for ( var twitterid in tSignals ) {
+        allthetwitterids.push(twitterid);
     }
 
-    console.log(allthetwitternames.toString());
-    
-    twit.stream('statuses/filter', {'follow':allthetwitternames.toString()}, function(stream) {
+    if (allthetwitterids.length < 1) {
+        return
+    }
+
+    twit.stream('statuses/filter', {'follow':allthetwitterids.toString()}, function(stream) {
         stream.on('data', function (data) {
 
-            //var chckin = new  Checkin(new Date().getTime(), null, 'twitter', 'twitted: '+ data.text);
-            
-            user = users.get_user(tSignals.get_user(data.user.screen_name))
-            user.checkin(models.sources.TWITTER, 'tweeted');
-            console.log(data.user.screen_name+": "+data.text);
+            if (data.user != false) {
+                user = users.get_user(tSignals[data.user.id])
+                if (user != undefined) {
+                    user.checkin(models.sources.TWITTER, 'tweeted');
+                } else {
+                    console.log('got data for unconfigured user: '+user)
+                }
+            }
 
         });
     });   
@@ -163,7 +166,7 @@ exports.adduser = function(req, res){
         if (!error && response.statusCode == 200) {
            var tid = JSON.parse(body)[0].id;
            console.log(tid);
-           tSignals.add_signal(user_data.username, tid);
+           tSignals[tid] = user_data.username;
            updateTwitterStream();
         }
     })
