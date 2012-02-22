@@ -74,6 +74,7 @@ User.prototype.get_config = function() {
 User.prototype.checkin = function(source, message) {
     var checkin = new Checkin(new Date().getTime(), null, source, message);
     this.checkins.push(checkin);
+    console.log('User %s checked in via %s', this.username, source);
 };
 User.prototype.alert = function() { 
     this.checkin(sources.SYSTEM, 'panic alert');
