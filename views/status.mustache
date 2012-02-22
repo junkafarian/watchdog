@@ -1,5 +1,57 @@
 <h1>Current status of {{username}}</h1>
-<p>{{status.status}} {{#status.status}}(Active on {{status.active_sources}}){{/status.status}}</p>
+<div id="setStatus">
+	<a class="button safe" href="/checkin/{{username}}">
+		<span class="pretitle">I am</span>
+		<span class="title">safe</span>
+		<span class="subtitle">Don't worry</span>
+	</a>
+	<a class="button danger" href="/alert/{{username}}">
+		<span class="pretitle">I am</span>
+		<span class="title">in danger</span>
+		<span class="subtitle">Alert my friends</span>
+	</a>
+</div>
+
+<div id="currentStatus">
+	Watchdog thinks you are <span id="currentStatusText">{{status.status}}</span>
+</div>
+
+<div id="friends">
+	<h2>We will contact these people if you are in danger:</h2>
+	
+	<ul>
+		<li>
+			<a href="#" id="addContact">
+				Add a contact
+			</a>
+		</li>
+		<li>
+			<span class="pic">
+				<img src="/images/furgus.png"/>
+			</span>
+			<span class="name">
+				Fergus Doyle
+			</span>
+		</li>
+		<li>
+			<span class="pic">
+				<img src="/images/gerard.png"/>
+			</span>
+			<span class="name">
+				Gerard Rallo
+			</span>
+		</li>
+		
+		<li>
+			<span class="pic">
+				<img src="/images/joe.png"/>
+			</span>
+			<span class="name">
+				Joe Lanman
+			</span>
+		</li>
+	</ul>
+</div>
 {{#last_checkins}}
-<p>{{checkin.source}}: {{status}}</p>
+<p>Latest check in from <b>{{checkin.source}}</b> shows status as <b>{{status}}</b></p>
 {{/last_checkins}}

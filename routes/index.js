@@ -96,11 +96,10 @@ exports.status = function(req, res) {
     
     if (user != undefined) {
         status = user.check_status();
-        console.log("Requested status for %s: %s", username, user.status);
         res.render('status', {
             locals: {'username': username,
                      'status': status,
-                     'last_checkins': status.last_checkins}
+                     'last_checkins': status.checkins}
         });
     } else {
         console.log("Requested status for invalid username: %s", username);
@@ -133,10 +132,7 @@ exports.checkin = function(req, res) {
     if (user != undefined) {
         user.checkin(models.sources.SYSTEM, 'online checkin')
         console.log("Checked in for %s: %s", username, user.status);
-        res.render('status', {
-            locals: {'username': username,
-                     'status': user.status}
-        });
+        res.redirect('/status/' + user.username);
     } else {
         console.log("Checkin for invalid username: %s", username);
         res.render('404', {
@@ -170,7 +166,7 @@ exports.adduser = function(req, res){
            updateTwitterStream();
         }
     })
-    res.redirect('/signedin');
+    res.redirect('/status/' + user_data.username);
 
 }
 

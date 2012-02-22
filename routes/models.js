@@ -98,8 +98,12 @@ User.prototype.check_status = function() {
         
         if (last_checkin == null)
             continue
-
-        if (status != 'active') {
+        
+        if (last_checkin.action == 'panic alert') {
+            source_status = 'in danger'
+            status = source_status
+            last_checkins.push({'checkin': last_checkin, 'status': source_status});
+        } else if (status != 'active') {
             console.log('last checkin for %s through %s was at %s', this.username, key, last_checkin.date_time);
 
             var unknown = new Date();
@@ -109,11 +113,12 @@ User.prototype.check_status = function() {
             
             if (last_checkin.date_time > active){
                 source_status = 'active';
-                status = source_status;
                 active_sources.push(key);
+                if (status != 'active' && status != 'in danger') 
+                    status = source_status;
             } else if (last_checkin.date_time > unknown) {
                 source_status = 'unknown';
-                if (status != 'active') 
+                if (status != 'active' && status != 'in danger') 
                     status = source_status;
             }
             last_checkins.push({'checkin': last_checkin, 'status': source_status});
