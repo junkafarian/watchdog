@@ -93,7 +93,7 @@ User.prototype.check_status = function() {
         thresholds = config[key];
         var last_checkin = null;
         for (var i=this.checkins.length-1; checkin=this.checkins[i], i>=0; i--) {
-	    if (checkin.source == key) {console.log(checkin); last_checkin = checkin; break}
+	    if (checkin.source == key) {last_checkin = checkin; break}
         }
         
         if (last_checkin == null)

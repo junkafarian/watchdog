@@ -161,7 +161,6 @@ exports.adduser = function(req, res){
     request('https://api.twitter.com/1/users/lookup.json?screen_name='+user_data.twitter, function (error, response, body) {
         if (!error && response.statusCode == 200) {
            var tid = JSON.parse(body)[0].id;
-           console.log(tid);
            tSignals[tid] = user_data.username;
            updateTwitterStream();
         }
