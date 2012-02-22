@@ -95,7 +95,7 @@ exports.status = function(req, res) {
     var user = users.get_user(username);
     
     if (user != undefined) {
-        userstatus = user.check_status();
+        user_status = user.check_status();
         res.render('status', {
             locals: {'username': username,
                      'user_status': user_status,
