@@ -4,8 +4,8 @@
  */
 
 var express = require('express'),
-	routes = require('./routes'),
-	stache = require('stache');
+    routes  = require('./routes'),
+    stache  = require('stache');
 
 var app = module.exports = express.createServer();
 
@@ -41,4 +41,5 @@ app.get('/register', routes.register);
 app.post('/newuser', routes.adduser);
 
 app.listen(3000);
+
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
