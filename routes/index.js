@@ -1,11 +1,9 @@
-var models 	= require('./models');
-var users 	= new models.UserList();
-var request = require('request');
-
-var twitter = require('ntwitter');
-var tSignals = {};
-
-
+var models      = require('./models'),
+    request     = require('request'),
+    twitter     = require('ntwitter'),
+    io          = require('socket.io').listen(3003),
+    users       = new models.UserList(),
+    tSignals    = {};
 
 
 var twit = new twitter({
@@ -45,6 +43,20 @@ function updateTwitterStream() {
     });   
 }
 
+
+function get_statuses() {
+    var statuses = [];
+    for (var username in users.users) {
+        user = users.get_user(username)
+        if (user != undefined) {
+            // TODO: .check_status() elsewhere
+            status = user.check_status();
+            statuses.push({'username': user.username,
+                           'status': status});
+        }
+    }
+    return statuses;
+}
 
 function bootstrap() {
     // bootstrap data
@@ -110,16 +122,7 @@ exports.status = function(req, res) {
 };
 
 exports.status_listings = function(req, res) {
-    var statuses = [];
-    for (var username in users.users) {
-        user = users.get_user(username)
-        if (user != undefined) {
-            // TODO: .check_status() elsewhere
-            status = user.check_status();
-            statuses.push({'username': user.username,
-                           'status': status});
-        }
-    }
+    var statuses = get_statuses();
     res.render('status_listings', {
         locals: {'statuses': statuses}
     });
