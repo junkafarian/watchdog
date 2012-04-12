@@ -1,4 +1,4 @@
 <h1>Current status of all system users</h1>
 {{#statuses}}
-   <p><a href="/status/{{username}}">{{username}}</a>: {{status.status}}</p>
+   <p><a href="/status/{{username}}">{{username}}</a>: <span class="status-container" rel="{{username}}">{{status.status}}</span></p>
 {{/statuses}}

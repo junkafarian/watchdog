@@ -66,6 +66,16 @@ function bootstrap() {
 
 bootstrap();
 
+// Sockets
+
+io.sockets.on('connection', function (socket) {
+    var statuses = get_statuses();
+    socket.emit('status_update', statuses);
+    console.log('new connection opened');
+});
+
+// Views
+
 exports.index = function(req, res){
   res.render('index', {
     locals: {
