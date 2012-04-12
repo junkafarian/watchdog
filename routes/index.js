@@ -69,8 +69,7 @@ bootstrap();
 // Sockets
 
 io.sockets.on('connection', function (socket) {
-    var statuses = get_statuses();
-    socket.emit('status_update', statuses);
+    socket.emit('status_update', get_statuses());
     console.log('new connection opened');
 });
 
@@ -99,6 +98,7 @@ exports.alert = function(req, res){
     if (user != undefined) {
         user.alert();
         
+        io.sockets.emit('status_update', get_statuses());
         console.log("Alert received and processed for %s", username);
         res.render('alert', {
             locals: {'username': username}
@@ -144,6 +144,7 @@ exports.checkin = function(req, res) {
     
     if (user != undefined) {
         user.checkin(models.sources.SYSTEM, 'online checkin')
+        io.sockets.emit('status_update', get_statuses());
         console.log("Checked in for %s: %s", username, user.status);
         res.redirect('/status/' + user.username);
     } else {
